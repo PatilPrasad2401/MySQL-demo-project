@@ -16,13 +16,13 @@ public class BikeService {
             int bike_id = scanner.nextInt();
             System.out.println("Pls enter make of bike :");
             String make = scanner.nextLine();
-            System.out.println("Pls enter student model name:");
+            System.out.println("Pls enter bike model name:");
             String model = scanner.next();
             System.out.println("Pls enter Bike colour:");
             String color = scanner.next();
             System.out.println("Pls enter Bike numberplate :");
             String numberplate = scanner.next();
-            System.out.println("Pls enter Bike of bike:");
+            System.out.println("Pls enter Bike of year:");
             int year = scanner.nextInt();
 
             bike.setBikeId(bike_id);
@@ -47,19 +47,19 @@ public class BikeService {
             String make=scanner.next();
             System.out.println("Please enter your bike model: ");
             String model=scanner.next();
+            System.out.println("please enter your bike year");
+            int year=scanner.nextInt();
             System.out.println("please enter your color");
             String color=scanner.next();
             System.out.println("please enter your number plate number");
             String number_plate=scanner.next();
-            System.out.println("please enter your bike year");
-            int year=scanner.nextInt();
 
             bike.setBikeId(bike_id);
             bike.setMake(make);
             bike.setModel(model);
+            bike.setYear(year);
             bike.setColour(color);
             bike.setNumber_plate(number_plate);
-            bike.setYear(year);
             bikeRepository.addBikeOfNewCustomer(customer_id,bike);
             System.out.println("Bike added successfully");
         }
@@ -81,19 +81,19 @@ public class BikeService {
         String make=scanner.next();
         System.out.println("Please enter your bike model: ");
         String model=scanner.next();
+        System.out.println("please enter your bike year");
+        int year=scanner.nextInt();
         System.out.println("please enter your color");
         String color=scanner.next();
         System.out.println("please enter your number plate number");
         String number_plate=scanner.next();
-        System.out.println("please enter your bike year");
-        int year=scanner.nextInt();
 
         bike.setBikeId(bike_id);
         bike.setMake(make);
         bike.setModel(model);
+        bike.setYear(year);
         bike.setColour(color);
         bike.setNumber_plate(number_plate);
-        bike.setYear(year);
         bikeRepository.updatebike(bike);
         System.out.println("Bike update  successfully");
     }

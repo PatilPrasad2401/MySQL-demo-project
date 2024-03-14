@@ -15,7 +15,7 @@ public class AssignmentRepository {
             throws SQLException {
         Connection connection = connectionService.getConnection();
         PreparedStatement statement = connection
-                .prepareStatement("Insert Into service_assignment values (?,?,?,?,?,?)");
+                .prepareStatement("Insert Into service_assignments values (?,?,?,?,?,?)");
         statement.setInt(1, assignment.getAssignmentId());
         statement.setInt(2, request_id);
         statement.setInt(3, technician_id);
@@ -30,7 +30,7 @@ public class AssignmentRepository {
     public void getAssignment(int assignment_id) throws SQLException {
         Connection connection = connectionService.getConnection();
         PreparedStatement statement = connection
-                .prepareStatement("Select * From service_assignment where assignment_id = ?");
+                .prepareStatement("Select * From service_assignments where assignment_id = ?");
         statement.setInt(1, assignment_id);
         ResultSet resultSet = statement.executeQuery();
         while(resultSet.next()) {
@@ -47,7 +47,7 @@ public class AssignmentRepository {
     public void getAllAssignment() throws SQLException {
         Connection connection = connectionService.getConnection();
         PreparedStatement statement = connection
-                .prepareStatement("Select * From service_assignment");
+                .prepareStatement("Select * From service_assignments");
         ResultSet resultSet = statement.executeQuery();
         while(resultSet.next()) {
             System.out.println("---------------------->Assignment id     : "+resultSet.getInt(1));

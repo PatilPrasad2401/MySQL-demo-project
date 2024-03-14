@@ -53,15 +53,15 @@ public class CustomerService {
         Customer customer=new Customer();
         System.out.println("Please Enter Email address :");
         String email=sc.next();
-        System.out.println(" Please enter address :");
-        String address=sc.next();
         System.out.println("please enter phone number :");
         long phone=sc.nextLong();
+        System.out.println(" Please enter address :");
+        String address=sc.next();
 
         customer.setCustomerId(customer_id);
         customer.setEmail(email);
-        customer.setAddress(address);
         customer.setPhone(phone);
+        customer.setAddress(address);
         customerRepository.updateCustomer(customer);
     }
 }

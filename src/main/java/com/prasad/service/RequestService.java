@@ -27,6 +27,18 @@ public class RequestService {
         requests.setDescription(description);
         requestsRepository.addRequest(bikeId,requests);
         System.out.println("Request is created successfully .... fill the technician details");
+        TechniciansService technicianService = new TechniciansService();
+        System.out.println();
+        System.out.println(
+                "                  These are the technicians are available in station please enter id whose u want to give this assisgnment");
+        technicianService.getAllTechnicians();
+        int technician_id = sc.nextInt();
+        int part_id = 0;
+        System.err.println("                             Enter part id which is loaded");
+        part_id = sc.nextInt();
+        System.err.println("                        Assignment is creating");
+        AssignmentService assignmentService = new AssignmentService();
+        assignmentService.createAssignment(req_id, technician_id, part_id);
 
     }
     public void getRequest() throws SQLException {

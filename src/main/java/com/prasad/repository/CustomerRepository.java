@@ -19,8 +19,8 @@ public class CustomerRepository {
         statement.setString(2, customer.getFirst_name());
         statement.setString(3, customer.getLast_name());
         statement.setString(4, customer.getEmail());
-        statement.setString(5, customer.getAddress());
-        statement.setLong(6, customer.getPhone());
+        statement.setLong(5, customer.getPhone());
+        statement.setString(6, customer.getAddress());
         statement.executeUpdate();
         connection.close();
     }
@@ -35,8 +35,8 @@ public class CustomerRepository {
             System.out.println("Customer first name :" + resultSet.getString(2));
             System.out.println("Customer last name  :" + resultSet.getString(3));
             System.out.println("Customer email      :" + resultSet.getString(4));
-            System.out.println("Customer address    :" + resultSet.getString(5));
-            System.out.println("Customer phone      :" + resultSet.getInt(6));
+            System.out.println("Customer phone      :" + resultSet.getLong(5));
+            System.out.println("Customer address    :" + resultSet.getString(6));
         }
     }
 
@@ -49,8 +49,8 @@ public class CustomerRepository {
             System.out.println("Customer first name :" + resultSet.getString(2));
             System.out.println("Customer last name  :" + resultSet.getString(3));
             System.out.println("Customer email      :" + resultSet.getString(4));
-            System.out.println("Customer address    :" + resultSet.getString(5));
-            System.out.println("Customer phone      :" + resultSet.getInt(6));
+            System.out.println("Customer phone      :" + resultSet.getLong(5));
+            System.out.println("Customer address    :" + resultSet.getString(6));
         }
     }
 
@@ -59,8 +59,8 @@ public class CustomerRepository {
         PreparedStatement statement = connection
                 .prepareStatement("Update Customer Set email = ? , phone =? ,address = ?  where customer_id = ?");
         statement.setString(1, customer.getEmail());
-        statement.setString(2, customer.getAddress());
-        statement.setLong(3, customer.getPhone());
+        statement.setLong(2, customer.getPhone());
+        statement.setString(34, customer.getAddress());
         statement.setInt(4, customer.getCustomerId());
         statement.executeUpdate();
         connection.close();

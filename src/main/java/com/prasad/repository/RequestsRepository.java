@@ -13,7 +13,7 @@ public class RequestsRepository {
     ConnectionService connectionService=new ConnectionService();
     public void addRequest(int bikeId, Requests requests) throws SQLException {
         Connection connection=connectionService.getConnection();
-        PreparedStatement statement=connection.prepareStatement("Insert into service_request values(?,?,?,?,?)");
+        PreparedStatement statement=connection.prepareStatement("Insert into service_requests values(?,?,?,?,?)");
         statement.setInt(1, requests.getRequestId());
         statement.setInt(2, bikeId);
         statement.setString(3, requests.getStatus());
@@ -24,7 +24,7 @@ public class RequestsRepository {
     }
 
     public void getAllRequests() throws SQLException {Connection connection = connectionService.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select * from service_request");
+        PreparedStatement statement = connection.prepareStatement("select * from service_requests");
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
             System.out.println("--------------->Request_id    : " + resultSet.getInt(1));
@@ -38,7 +38,7 @@ public class RequestsRepository {
 
     public void getRequest(int reqId) throws SQLException {
         Connection connection = connectionService.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select * from service_request where request_id = ?");
+        PreparedStatement statement = connection.prepareStatement("select * from service_requests where request_id = ?");
         statement.setInt(1, reqId);
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
